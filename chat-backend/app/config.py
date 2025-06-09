@@ -11,6 +11,9 @@ class Settings(BaseSettings):
 
     SUPABASE_URL: str = ""
     SUPABASE_KEY: str = ""
+    GITHUB_CLIENT_ID: str = ""
+    GITHUB_CLIENT_SECRET: str = ""
+    REDIRECT_URI: str = ""
     
 
     OPENAI_API_KEY: str = ""

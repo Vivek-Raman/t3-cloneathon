@@ -1,5 +1,8 @@
 from fastapi import APIRouter
+from app.api.v1.endpoints import test
 
 api_router = APIRouter()
 
-# Routes here
+
+api_router.include_router(test.router, prefix="/test", tags=["test"])
+
