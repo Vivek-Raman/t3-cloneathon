@@ -1,0 +1,61 @@
+{
+  "hash": "4d4537bd",
+  "configHash": "266defe9",
+  "lockfileHash": "adbc3074",
+  "browserHash": "3624a7c0",
+  "optimized": {
+    "react/jsx-dev-runtime": {
+      "src": "../../node_modules/react/jsx-dev-runtime.js",
+      "file": "react_jsx-dev-runtime.js",
+      "fileHash": "8ac2606a",
+      "needsInterop": true
+    },
+    "react": {
+      "src": "../../node_modules/react/index.js",
+      "file": "react.js",
+      "fileHash": "c84ee263",
+      "needsInterop": true
+    },
+    "react-dom/client": {
+      "src": "../../node_modules/react-dom/client.js",
+      "file": "react-dom_client.js",
+      "fileHash": "d679fc9c",
+      "needsInterop": true
+    },
+    "posthog-js/react": {
+      "src": "../../node_modules/posthog-js/react/dist/esm/index.js",
+      "file": "posthog-js_react.js",
+      "fileHash": "b72dee6e",
+      "needsInterop": false
+    },
+    "@mantine/core": {
+      "src": "../../node_modules/@mantine/core/esm/index.mjs",
+      "file": "@mantine_core.js",
+      "fileHash": "bd592850",
+      "needsInterop": false
+    },
+    "@mantine/hooks": {
+      "src": "../../node_modules/@mantine/hooks/esm/index.mjs",
+      "file": "@mantine_hooks.js",
+      "fileHash": "f54c075f",
+      "needsInterop": false
+    },
+    "@iconify/react": {
+      "src": "../../node_modules/@iconify/react/dist/iconify.js",
+      "file": "@iconify_react.js",
+      "fileHash": "8ef833de",
+      "needsInterop": false
+    }
+  },
+  "chunks": {
+    "chunk-QOVZGY7A": {
+      "file": "chunk-QOVZGY7A.js"
+    },
+    "chunk-PIRQJKSN": {
+      "file": "chunk-PIRQJKSN.js"
+    },
+    "chunk-5WQJO2FO": {
+      "file": "chunk-5WQJO2FO.js"
+    }
+  }
+}
