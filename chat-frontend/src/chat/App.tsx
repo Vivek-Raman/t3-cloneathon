@@ -1,7 +1,8 @@
-import { AppShell, createTheme, MantineProvider, Burger } from '@mantine/core';
+import { AppShell, Burger, createTheme, Group, MantineProvider } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import Navbar from './frames/Navbar';
 import ContextWrapper from './context/ContextWrapper';
+import Navbar from './frames/Navbar';
+import { Notifications } from '@mantine/notifications';
 
 const theme = createTheme({
   primaryColor: 'violet',
@@ -15,6 +16,7 @@ export default function App() {
   return (
     <ContextWrapper>
       <MantineProvider theme={theme}>
+        <Notifications position="top-right" />
         <AppShell
           withBorder={false}
           header={{ height: '4rem' }}
@@ -31,8 +33,10 @@ export default function App() {
               paddingLeft: '1rem',
             }}
           >
-            <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <div style={{ marginLeft: '1rem' }}>Header</div>
+            <Group gap="1rem">
+              <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
+              <div>Header</div>
+            </Group>
           </AppShell.Header>
           <AppShell.Navbar>
             <Navbar />

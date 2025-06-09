@@ -4,6 +4,7 @@ import { useContext } from 'react';
 import supabase from '../../../utils/supabase';
 import AuthContext from '../../context/auth/AuthContext';
 import UserCard from '../navbar/UserCard';
+import { authFetch } from '../../../utils/fetch';
 
 export default function SignIn() {
   const { authUser, setAuthUser } = useContext(AuthContext);
@@ -33,6 +34,15 @@ export default function SignIn() {
     return (
       <Stack align="center" justify="center" h="100%">
         <UserCard />
+        <Button
+          onClick={() => {
+            authFetch('/api/v1/test').then(res => {
+              console.log(res);
+            });
+          }}
+        >
+          Do the thing
+        </Button>
         <Button onClick={doSignOut}>Sign out</Button>
       </Stack>
     );
