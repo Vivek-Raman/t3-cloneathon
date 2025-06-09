@@ -1,11 +1,11 @@
 services:
-  # backend:
-  #   container_name: chat-backend
-  #   build:
-  #     context: ./chat-backend
-  #     dockerfile: Dockerfile
-  #   ports:
-  #     - "3000:3000"
+  backend:
+    container_name: chat-backend
+    build:
+      context: ./chat-backend
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
   chat-frontend:
     image: chat-frontend
     build:
