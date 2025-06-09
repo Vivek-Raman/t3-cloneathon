@@ -4,12 +4,14 @@ services:
     build:
       context: ./chat-backend
       dockerfile: Dockerfile
+    env_file: ./chat-backend/.env
     ports:
       - "3000:3000"
   chat-frontend:
-    image: chat-frontend
+    container_name: chat-frontend
     build:
       context: ./chat-frontend
       dockerfile: Dockerfile
+    env_file: ./chat-frontend/.env
     ports:
       - "80:80"
