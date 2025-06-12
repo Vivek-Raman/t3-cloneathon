@@ -1,7 +1,7 @@
 import { Stack, NavLink, Text } from '@mantine/core';
 import { NavLink as RouterNavLink, useLocation } from 'react-router-dom';
-import { Icon } from '@iconify/react';
-import UserCard from '../components/navbar/UserCard';
+import Icon from '../components/Icon';
+import UserSettingsCard from '../components/navbar/UserSettingsCard';
 
 // Example chat list - in a real app, this would come from your chat state/API
 const sampleChats = [
@@ -35,7 +35,7 @@ export default function Navbar() {
           ))}
         </Stack>
       </Stack>
-      <UserCard />
+      <UserSettingsCard />
     </Stack>
   );
 }
