@@ -18,7 +18,7 @@ export default function App() {
   return (
     <ContextWrapper>
       <MantineProvider theme={theme}>
-        <Notifications position="top-right" />
+        <Notifications />
         <BrowserRouter>
           <AppShell
             withBorder={false}

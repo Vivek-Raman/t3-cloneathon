@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import supabase from '../../../utils/supabase';
 import AuthContext from '../../context/auth/AuthContext';
 import SignIn from '../auth/SignIn';
-import Models from './panels/Models';
+import Providers from './panels/Providers';
 import Appearance from './panels/Appearance';
 
 export default function SettingsModal() {
@@ -31,22 +31,22 @@ export default function SettingsModal() {
           Sign out
         </Button>
       </Group>
-      <Tabs defaultValue="models">
+      <Tabs defaultValue="providers">
         <Tabs.List>
-          <Tabs.Tab value="models">Models</Tabs.Tab>
+          <Tabs.Tab value="providers">Providers</Tabs.Tab>
           <Tabs.Tab value="appearance">Appearance</Tabs.Tab>
           <Tabs.Tab value="sync">Sync</Tabs.Tab>
         </Tabs.List>
 
-        <Tabs.Panel value="models" p="md">
-          <Models />
+        <Tabs.Panel value="providers" pt="xs">
+          <Providers />
         </Tabs.Panel>
 
-        <Tabs.Panel value="appearance" p="md">
+        <Tabs.Panel value="appearance" pt="xs">
           <Appearance />
         </Tabs.Panel>
 
-        <Tabs.Panel value="sync" p="md">
+        <Tabs.Panel value="sync" pt="xs">
           Sync tab content
         </Tabs.Panel>
       </Tabs>

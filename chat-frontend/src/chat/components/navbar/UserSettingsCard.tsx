@@ -14,8 +14,8 @@ export default function UserSettingsCard() {
       <Modal opened={opened} onClose={closeAuthModal} centered withCloseButton={false}>
         <AuthModal />
       </Modal>
-      <UnstyledButton onClick={openAuthModal} style={{ minWidth: '80%' }} mx="auto" mb="md">
-        <Paper withBorder shadow="md" radius="lg" p="lg">
+      <UnstyledButton onClick={openAuthModal} w="100%" mx="auto" mb="md">
+        <Paper withBorder shadow="md" radius="lg" p="sm">
           <Group justify="space-between">
             <Group>
               <Avatar src={authUser?.user_metadata.avatar_url} />
