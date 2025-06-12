@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import ContextWrapper from './context/ContextWrapper';
 import ActiveChatFrame from './frames/ActiveChatFrame';
 import Navbar from './frames/Navbar';
+import NewChatButton from './components/navbar/NewChatButton';
 
 const theme = createTheme({
   primaryColor: 'violet',
@@ -33,18 +34,29 @@ export default function App() {
               style={{
                 display: 'flex',
                 alignItems: 'center',
-                paddingLeft: '1rem',
               }}
             >
-              <Group gap="1rem">
+              <Group justify="space-between" w="100%" mx="md">
                 <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
+                <NewChatButton
+                  closeNavFn={() => {
+                    if (navbarOpened) toggle();
+                  }}
+                />
               </Group>
             </AppShell.Header>
+
             <AppShell.Navbar>
-              <Navbar />
+              <Navbar
+                closeNavFn={() => {
+                  if (navbarOpened) toggle();
+                }}
+              />
             </AppShell.Navbar>
+
             <AppShell.Main>
               <Routes>
+                <Route path="/" element={<ActiveChatFrame />} />
                 <Route path="/chat/:chatID" element={<ActiveChatFrame />} />
               </Routes>
             </AppShell.Main>
