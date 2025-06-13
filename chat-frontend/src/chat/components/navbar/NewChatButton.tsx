@@ -1,4 +1,4 @@
-import { UnstyledButton } from '@mantine/core';
+import { ActionIcon } from '@mantine/core';
 import Icon from '../Icon';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,8 +16,8 @@ export default function NewChatButton(props: NewChatButtonProps) {
   };
 
   return (
-    <UnstyledButton onClick={createNewChat}>
+    <ActionIcon onClick={createNewChat}>
       <Icon icon="mdi:plus" />
-    </UnstyledButton>
+    </ActionIcon>
   );
 }

@@ -6,6 +6,7 @@ import NewChatButton from './components/navbar/NewChatButton';
 import ContextWrapper from './context/ContextWrapper';
 import ActiveChatFrame from './frames/ActiveChatFrame';
 import Navbar from './frames/Navbar';
+import InputBox from './components/chat/InputBox';
 
 export default function App() {
   const [navbarOpened, { toggle }] = useDisclosure();
@@ -52,6 +53,8 @@ export default function App() {
             <Route path="/chat/:chatID" element={<ActiveChatFrame />} />
           </Routes>
         </AppShell.Main>
+
+        <AppShell.Footer>{location.pathname !== '/' && <InputBox />}</AppShell.Footer>
       </AppShell>
     </ContextWrapper>
   );

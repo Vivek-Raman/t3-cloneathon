@@ -12,7 +12,9 @@ export default function ContextWrapper({ children }: { children: React.ReactNode
   return (
     <AuthContextProvider>
       <BrowserRouter>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          {children}
+        </MantineProvider>
       </BrowserRouter>
     </AuthContextProvider>
   );
