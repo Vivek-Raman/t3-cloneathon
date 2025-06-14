@@ -44,8 +44,7 @@ export default function OllamaConfig() {
             id: `ollama-${model.id}`,
             name: model.id,
             provider: 'ollama',
-            capabilities: [],
-            enabled: true,
+            enabled: 1,
             api_key: 'ollama',
           }) as LangModel,
       ) as LangModel[];

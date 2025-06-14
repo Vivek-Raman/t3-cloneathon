@@ -6,16 +6,24 @@ interface LangModel {
   provider: string;
   name: string;
   price: number;
-  enabled: boolean;
+  enabled: number;
   api_key: string;
+}
+
+interface UserConfig {
+  id: string;
+  key: string;
+  value: string;
 }
 
 const db = new Dexie('chat-db') as Dexie & {
   langModel: EntityTable<LangModel, 'id'>;
+  userConfig: EntityTable<UserConfig, 'id'>;
 };
 
 db.version(1).stores({
-  langModel: '++id, display_name, provider, name, price, enabled, api_key',
+  langModel: '++id, provider, enabled',
+  userConfig: '++id, key',
 });
 
 export { db };

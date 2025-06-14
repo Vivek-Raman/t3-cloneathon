@@ -4,7 +4,6 @@ import { notifications } from '@mantine/notifications';
 import { useState } from 'react';
 import { db, type LangModel } from '../../../../../utils/db';
 import Icon from '../../../Icon';
-import { useLiveQuery } from 'dexie-react-hooks';
 
 interface OpenRouterSettings {
   apiKey: string;
@@ -44,7 +43,7 @@ export default function OpenRouterConfig() {
           provider: model.id.split('/')[0] ?? 'unknown',
           name: model.id.split('/')[1] ?? 'unknown',
           price: price,
-          enabled: price <= 0,
+          enabled: price <= 0 ? 1 : 0,
           api_key: apiKey,
         } as LangModel;
       }) as LangModel[];

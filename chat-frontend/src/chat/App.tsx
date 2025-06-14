@@ -1,4 +1,4 @@
-import { AppShell, Burger, Group } from '@mantine/core';
+import { AppShell, Burger, Container, Group } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
 import { Route, Routes } from 'react-router-dom';
@@ -31,6 +31,7 @@ export default function App() {
         >
           <Group justify="space-between" w="100%" mx="md">
             <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
+            <Container visibleFrom="sm"></Container>
             <NewChatButton
               closeNavFn={() => {
                 if (navbarOpened) toggle();
