@@ -1,4 +1,4 @@
-import { Title } from '@mantine/core';
+import { Group, Text, Title } from '@mantine/core';
 import { useLiveQuery } from 'dexie-react-hooks';
 import { db } from '../../../utils/db';
 import { useCallback, useContext } from 'react';
@@ -37,9 +37,12 @@ export default function NewChatWelcome() {
 
   return (
     <>
-      <Title style={{ display: 'inline-block' }}>
-        Hello, <EditableText key={getDisplayName()} onChange={updateDisplayName} initialValue={getDisplayName()} />.
-      </Title>
+      <Group gap="0" justify="center" align="center">
+        <Title>Hello,&nbsp;</Title>
+        <EditableText key={getDisplayName()} onChange={updateDisplayName} initialValue={getDisplayName()} />
+        <Title>.</Title>
+      </Group>
+      <Text>What's on your mind today?</Text>
     </>
   );
 }

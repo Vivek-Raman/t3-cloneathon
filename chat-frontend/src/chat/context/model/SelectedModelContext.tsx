@@ -1,7 +1,7 @@
-import { createContext, useState } from 'react';
+import { createContext } from 'react';
 import { type LangModel } from '../../../utils/db';
 
-export const SelectedModelContext = createContext<{
+const SelectedModelContext = createContext<{
   selectedModel: LangModel | null;
   setSelectedModel: (model: LangModel | null) => void;
 }>({
@@ -9,12 +9,4 @@ export const SelectedModelContext = createContext<{
   setSelectedModel: () => {},
 });
 
-export const SelectedModelContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const [selectedModel, setSelectedModel] = useState<LangModel | null>(null);
-
-  return (
-    <SelectedModelContext.Provider value={{ selectedModel, setSelectedModel }}>
-      {children}
-    </SelectedModelContext.Provider>
-  );
-};
+export default SelectedModelContext;

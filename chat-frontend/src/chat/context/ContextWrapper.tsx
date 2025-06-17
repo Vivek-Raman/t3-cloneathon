@@ -1,7 +1,7 @@
 import { BrowserRouter } from 'react-router-dom';
 import AuthContextProvider from './auth/AuthContextProvider';
 import { createTheme, MantineProvider } from '@mantine/core';
-import { SelectedModelContextProvider } from './model/SelectedModelContext';
+import SelectedModelContextProvider from './model/SelectedModelContextProvider';
 
 const theme = createTheme({
   primaryColor: 'violet',

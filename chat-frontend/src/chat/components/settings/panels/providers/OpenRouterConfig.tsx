@@ -51,7 +51,7 @@ export default function OpenRouterConfig() {
       await db.langModel.bulkPut(models);
 
       notifications.show({
-        icon: <Icon icon="simple-icons:openrouter" />,
+        icon: <Icon icon="custom:openrouter" />,
         title: 'Connection to OpenRouter successful',
         message: `Registered ${models.length} models.`,
         color: 'green',
