@@ -1,4 +1,4 @@
-import { Input, ActionIcon, Group, Transition, Flex } from '@mantine/core';
+import { ActionIcon, Group, Title, Text, TextInput } from '@mantine/core';
 import { useState } from 'react';
 import Icon from '../Icon';
 
@@ -12,7 +12,6 @@ export default function EditableText(props: EditableTextProps) {
 
   const [editing, setEditing] = useState<boolean>(false);
   const [value, setValue] = useState<string>(initialValue);
-  const [isHovered, setIsHovered] = useState<boolean>(false);
 
   const handleSave = () => {
     onChange(value);
@@ -26,8 +25,8 @@ export default function EditableText(props: EditableTextProps) {
 
   if (editing) {
     return (
-      <Group gap="xs" align="center" style={{ display: 'inline-block' }}>
-        <Input
+      <Group gap="0" align="center">
+        <TextInput
           value={value}
           onChange={e => setValue(e.target.value)}
           onKeyDown={e => {
@@ -36,6 +35,15 @@ export default function EditableText(props: EditableTextProps) {
             } else if (e.key === 'Escape') {
               handleCancel();
             }
+          }}
+          onFocus={e => {
+            const handleClickOutside = (event: MouseEvent) => {
+              if (!(e.currentTarget?.contains(event.target as Node) ?? false)) {
+                handleCancel();
+                document.removeEventListener('mousedown', handleClickOutside);
+              }
+            };
+            document.addEventListener('mousedown', handleClickOutside);
           }}
           autoFocus
           rightSection={
@@ -50,21 +58,12 @@ export default function EditableText(props: EditableTextProps) {
   }
 
   return (
-    <Group
-      gap="xs"
-      onClick={() => setEditing(true)}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{ cursor: 'pointer', display: 'inline-block' }}
-    >
-      <div style={{ display: 'inline-block' }}>{initialValue}</div>
-      <Transition mounted={isHovered} transition="fade-right" duration={200}>
-        {styles => (
-          <ActionIcon variant="subtle" style={styles}>
-            <Icon icon="tabler:pencil" />
-          </ActionIcon>
-        )}
-      </Transition>
+    <Group gap="xs" onClick={() => setEditing(true)} style={{ cursor: 'pointer' }}>
+      <Title>
+        <Text gradient={{ from: 'pink', to: 'blue' }} variant="gradient" inherit>
+          {initialValue}
+        </Text>
+      </Title>
     </Group>
   );
 }

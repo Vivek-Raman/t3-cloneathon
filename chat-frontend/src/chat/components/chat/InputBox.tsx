@@ -1,4 +1,4 @@
-import { Group, Input, Stack } from '@mantine/core';
+import { Group, Stack, TextInput } from '@mantine/core';
 import ModelPicker from './ModelPicker';
 
 export default function InputBox() {
@@ -7,7 +7,7 @@ export default function InputBox() {
       <Group justify="space-between">
         <ModelPicker />
       </Group>
-      <Input placeholder="Type your message..." radius="lg" size="md" />
+      <TextInput placeholder="Type your message..." radius="lg" size="md" />
     </Stack>
   );
 }

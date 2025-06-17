@@ -52,8 +52,6 @@ export default function App() {
             <Route path="/chat/:chatID" element={<ActiveChatFrame />} />
           </Routes>
         </AppShell.Main>
-
-        {/* <AppShell.Footer>{location.pathname !== '/' && <InputBox />}</AppShell.Footer> */}
       </AppShell>
     </ContextWrapper>
   );

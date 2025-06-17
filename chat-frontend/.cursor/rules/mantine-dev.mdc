@@ -1,0 +1,6 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+This project uses Mantine UI design system. If a solution is available using Mantine, prefer it over manual implementations.
