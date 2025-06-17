@@ -2,6 +2,8 @@ import { Button, Group, Stack, TextInput } from '@mantine/core';
 import { notifications } from '@mantine/notifications';
 import { useForm } from '@mantine/form';
 import { useState } from 'react';
+import { db, type LangModel } from '../../../../../utils/db';
+import Icon from '../../../Icon';
 
 interface OllamaSettings {
   endpoint: string;
@@ -31,20 +33,30 @@ export default function OllamaConfig() {
     setIsLoading(true);
     try {
       const { endpoint } = values;
-      const response = await fetch(`${endpoint}/api/tags`);
-      if (response.ok) {
-        const data = await response.json();
-        console.log(data);
-        notifications.show({
-          title: 'Connection successful',
-          message: 'Successfully connected to Ollama',
-          color: 'green',
-        });
-      } else {
+      const response = await fetch(`${endpoint}/v1/models`);
+      if (!response.ok) {
         throw new Error('Connection failed');
       }
+      const responseData = await response.json();
+      const models = responseData.data.map(
+        (model: { id: string }) =>
+          ({
+            id: `ollama-${model.id}`,
+            name: model.id,
+            provider: 'ollama',
+            enabled: 1,
+            api_key: 'ollama',
+          }) as LangModel,
+      ) as LangModel[];
 
-      localStorage.setItem('ollamaEndpoint', endpoint);
+      await db.langModel.bulkPut(models);
+
+      notifications.show({
+        icon: <Icon icon="simple-icons:ollama" />,
+        title: 'Successfully connected to Ollama',
+        message: `Registered models: ${models.map(model => model.name).join(', ')}`,
+        color: 'green',
+      });
     } catch {
       notifications.show({
         title: 'Error',

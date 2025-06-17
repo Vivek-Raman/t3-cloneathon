@@ -21,7 +21,7 @@ export default function UserSettingsCard() {
               <Avatar src={authUser?.user_metadata.avatar_url} />
               <Text>{authUser?.user_metadata.name ?? 'Guest user'}</Text>
             </Group>
-            <Icon icon="tabler:settings" />
+            <Icon icon="mdi:settings" size="1.5rem" />
           </Group>
         </Paper>
       </UnstyledButton>
