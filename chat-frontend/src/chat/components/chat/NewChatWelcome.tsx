@@ -1,45 +1,12 @@
 import { Group, Text, Title } from '@mantine/core';
-import { useLiveQuery } from 'dexie-react-hooks';
-import { db } from '../../../utils/db';
-import { useCallback, useContext } from 'react';
-import AuthContext from '../../context/auth/AuthContext';
-import EditableText from './EditableText';
+import EditableDisplayName from './EditableDisplayName';
 
 export default function NewChatWelcome() {
-  const { authUser } = useContext(AuthContext);
-
-  const displayName = useLiveQuery(() =>
-    db.userConfig
-      .where('key')
-      .equals('displayName')
-      .first()
-      .then(res => res?.value),
-  );
-
-  const getDisplayName = useCallback(() => {
-    if (!authUser) return 'welcome';
-    // FIXME: any user can see the previous display name
-    if (displayName) {
-      return displayName;
-    }
-    if (authUser?.user_metadata.name) {
-      return authUser.user_metadata.name;
-    }
-    return 'welcome';
-  }, [authUser, displayName]);
-
-  const updateDisplayName = (value: string) => {
-    db.userConfig.put({
-      key: 'displayName',
-      value,
-    });
-  };
-
   return (
     <>
       <Group gap="0" justify="center" align="center">
         <Title>Hello,&nbsp;</Title>
-        <EditableText key={getDisplayName()} onChange={updateDisplayName} initialValue={getDisplayName()} />
+        <EditableDisplayName />
         <Title>.</Title>
       </Group>
       <Text>What's on your mind today?</Text>

@@ -5,11 +5,13 @@ import type { User } from '@supabase/supabase-js';
 
 export default function AuthContextProvider({ children }: { children: React.ReactNode }) {
   const [authUser, setAuthUser] = useState<User | null>(null);
+  const [displayName, setDisplayName] = useState<string>('guest');
 
   useEffect(() => {
     (async () => {
       const userResponse = await supabase.auth.getUser();
       setAuthUser(userResponse.data.user);
+      setDisplayName(userResponse.data.user?.user_metadata.name?.split(' ')?.at(0) ?? 'guest');
     })();
   }, []);
 
@@ -18,6 +20,8 @@ export default function AuthContextProvider({ children }: { children: React.Reac
       value={{
         authUser,
         setAuthUser,
+        displayName,
+        setDisplayName,
       }}
     >
       {children}

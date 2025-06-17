@@ -7,7 +7,6 @@ export default function SelectedModelContextProvider({ children }: { children: R
 
   const fetchInitialModel = async () => {
     const modelID = await db.userConfig.where('key').equals('selectedModelID').first();
-    console.log(modelID);
     if (!modelID) {
       return undefined;
     }

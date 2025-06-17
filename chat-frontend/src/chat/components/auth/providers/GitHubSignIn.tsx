@@ -21,10 +21,12 @@ export default function GitHubSignIn() {
 
     const userResponse = await supabase.auth.getUser();
     setAuthUser(userResponse.data.user);
-    db.userConfig.put({
-      key: 'displayName',
-      value: userResponse.data.user?.user_metadata.name ?? 'user',
-    });
+    await db.userConfig
+      .where('key')
+      .equals('displayName')
+      .modify(doc => {
+        doc.value = userResponse.data.user?.user_metadata.name ?? 'user';
+      });
   };
 
   return (
