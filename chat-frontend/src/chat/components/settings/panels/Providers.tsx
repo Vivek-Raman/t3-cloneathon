@@ -9,7 +9,7 @@ export default function Providers() {
       <Accordion.Item value="openrouter">
         <Accordion.Control>
           <Group align="center" gap="xs">
-            <Icon icon="@local:logo:openrouter" />
+            <Icon icon="custom:openrouter" />
             <Title order={3}>OpenRouter</Title>
           </Group>
         </Accordion.Control>

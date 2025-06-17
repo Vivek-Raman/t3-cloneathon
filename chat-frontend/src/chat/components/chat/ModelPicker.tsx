@@ -3,7 +3,7 @@ import { useLiveQuery } from 'dexie-react-hooks';
 import { db, type LangModel } from '../../../utils/db';
 import { useDisclosure } from '@mantine/hooks';
 import { useContext } from 'react';
-import { SelectedModelContext } from '../../context/model/SelectedModelContext';
+import SelectedModelContext from '../../context/model/SelectedModelContext';
 
 export default function ModelPicker() {
   const [opened, { open, close }] = useDisclosure(false);
