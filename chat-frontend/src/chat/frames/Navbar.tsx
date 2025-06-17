@@ -33,7 +33,7 @@ export default function Navbar(props: NavbarProps) {
               onClick={props.closeNavFn}
               to={`/chat/${chat.id}`}
               label={chat.name}
-              leftSection={<Icon icon="mdi:chat" width={16} height={16} />}
+              leftSection={<Icon icon="mdi:chat-outline" />}
               active={location.pathname === `/chat/${chat.id}`}
               style={{
                 borderRadius: '0.5rem',

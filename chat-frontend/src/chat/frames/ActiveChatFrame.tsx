@@ -1,6 +1,7 @@
 import { Paper, Stack } from '@mantine/core';
 import { useParams } from 'react-router-dom';
 import InputBox from '../components/chat/InputBox';
+import NewChatWelcome from '../components/chat/NewChatWelcome';
 
 export default function ActiveChatFrame() {
   const { chatID } = useParams<{ chatID: string }>();
@@ -8,7 +9,8 @@ export default function ActiveChatFrame() {
   if (!chatID) {
     // TODO: center and style
     return (
-      <Stack mih="100%" mt="50%" justify="center">
+      <Stack h="100%" justify="center" align="center" mx="xl">
+        <NewChatWelcome />
         <InputBox />
       </Stack>
     );
@@ -47,7 +49,7 @@ export default function ActiveChatFrame() {
         <div>Message 5: Last dummy message.</div>
         <div>Message 5: Last dummy message.</div>
         <div>Message 5: Last dummy message.</div>
-        <div>Message 5: Last dummy message.</div>
+        <div>Message x: Last dummy message.</div>
       </Stack>
       <Paper pos="sticky" m="md" bottom="1rem" bdrs="xl" shadow="md" withBorder>
         <InputBox />

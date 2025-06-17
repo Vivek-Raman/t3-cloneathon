@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import supabase from '../../../../utils/supabase';
 import AuthContext from '../../../context/auth/AuthContext';
 import Icon from '../../Icon';
+import { db } from '../../../../utils/db';
 
 export default function GitHubSignIn() {
   const { setAuthUser } = useContext(AuthContext);
@@ -20,6 +21,10 @@ export default function GitHubSignIn() {
 
     const userResponse = await supabase.auth.getUser();
     setAuthUser(userResponse.data.user);
+    db.userConfig.put({
+      key: 'displayName',
+      value: userResponse.data.user?.user_metadata.name ?? 'user',
+    });
   };
 
   return (

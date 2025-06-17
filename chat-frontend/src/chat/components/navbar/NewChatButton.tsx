@@ -17,7 +17,7 @@ export default function NewChatButton(props: NewChatButtonProps) {
 
   return (
     <ActionIcon onClick={createNewChat}>
-      <Icon icon="mdi:plus" />
+      <Icon icon="mdi:plus" size="1.5rem" />
     </ActionIcon>
   );
 }
