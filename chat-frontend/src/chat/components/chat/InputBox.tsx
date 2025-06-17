@@ -3,7 +3,7 @@ import ModelPicker from './ModelPicker';
 
 export default function InputBox() {
   return (
-    <Stack p="md" gap={0}>
+    <Stack px="xl" py="md" gap={0}>
       <Group justify="space-between">
         <ModelPicker />
       </Group>

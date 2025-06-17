@@ -1,4 +1,4 @@
-import { AppShell, Burger, Container, Group } from '@mantine/core';
+import { AppShell, Burger, Flex } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Notifications } from '@mantine/notifications';
 import { Route, Routes } from 'react-router-dom';
@@ -6,7 +6,6 @@ import NewChatButton from './components/navbar/NewChatButton';
 import ContextWrapper from './context/ContextWrapper';
 import ActiveChatFrame from './frames/ActiveChatFrame';
 import Navbar from './frames/Navbar';
-import InputBox from './components/chat/InputBox';
 
 export default function App() {
   const [navbarOpened, { toggle }] = useDisclosure();
@@ -29,15 +28,14 @@ export default function App() {
             alignItems: 'center',
           }}
         >
-          <Group justify="space-between" w="100%" mx="md">
-            <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
-            <Container visibleFrom="sm"></Container>
+          <Flex direction="row-reverse" justify="space-between" w="100%" mx="md">
             <NewChatButton
               closeNavFn={() => {
                 if (navbarOpened) toggle();
               }}
             />
-          </Group>
+            <Burger opened={navbarOpened} onClick={toggle} hiddenFrom="sm" size="sm" />
+          </Flex>
         </AppShell.Header>
 
         <AppShell.Navbar>
@@ -55,7 +53,7 @@ export default function App() {
           </Routes>
         </AppShell.Main>
 
-        <AppShell.Footer>{location.pathname !== '/' && <InputBox />}</AppShell.Footer>
+        {/* <AppShell.Footer>{location.pathname !== '/' && <InputBox />}</AppShell.Footer> */}
       </AppShell>
     </ContextWrapper>
   );

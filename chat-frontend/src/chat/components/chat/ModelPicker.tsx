@@ -28,6 +28,7 @@ export default function ModelPicker() {
   const selectModel = (model: LangModel) => {
     setSelectedModel(model);
     db.userConfig.put({ key: 'selectedModelID', value: model.id });
+    close();
   };
 
   return (
